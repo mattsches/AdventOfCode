@@ -1,8 +1,9 @@
 <?php
-require_once __DIR__ . '/../Day1.php';
+namespace AoC;
 
 /**
  * Class Day1Test
+ * @package AoC
  */
 class Day1Test extends \PHPUnit_Framework_Testcase
 {
@@ -25,7 +26,7 @@ class Day1Test extends \PHPUnit_Framework_Testcase
      * @param int $expected
      * @dataProvider getTestGetFloorTestData
      */
-    public function testGetFloor(string $input, int $expected)
+    public function testGetFloor(\string $input, \int $expected)
     {
         $result = $this->day1->getFloor($input);
         $this->assertEquals($expected, $result);
@@ -56,7 +57,7 @@ class Day1Test extends \PHPUnit_Framework_Testcase
      * @param int $expected
      * @dataProvider getTestGetBasementPositionTestData
      */
-    public function testGetBasementPosition(string $input, int $expected)
+    public function testGetBasementPosition(\string $input, \int $expected)
     {
         $result = $this->day1->getBasementPosition($input);
         $this->assertEquals($expected, $result);

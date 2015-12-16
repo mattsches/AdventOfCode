@@ -1,7 +1,10 @@
-<phpunit>
-  <testsuites>
-    <testsuite name="adventofcode">
-      <directory>tests</directory>
-    </testsuite>
-  </testsuites>
+<phpunit
+        bootstrap="autoload.php"
+        verbose="true"
+        colors="true">
+    <testsuites>
+        <testsuite name="adventofcode">
+            <directory>tests</directory>
+        </testsuite>
+    </testsuites>
 </phpunit>

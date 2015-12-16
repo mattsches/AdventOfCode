@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../Day2.php';
+namespace AoC;
 
 /**
  * Class Day2Test
@@ -25,7 +25,7 @@ class Day2Test extends \PHPUnit_Framework_Testcase
      * @param int $expected
      * @dataProvider getTestGetTotalSquareFeetTestData
      */
-    public function testGetTotalSquareFeet(string $input, int $expected)
+    public function testGetTotalSquareFeet(\string $input, \int $expected)
     {
         $result = $this->Day2->getTotalSquareFeet($input);
         $this->assertEquals($expected, $result);
@@ -50,7 +50,7 @@ class Day2Test extends \PHPUnit_Framework_Testcase
      * @param int $expected
      * @dataProvider getRibbonData
      */
-    public function testGetFeet(string $input, int $expected)
+    public function testGetFeet(\string $input, \int $expected)
     {
         $result = $this->Day2->getRibbonLength($input);
         $this->assertEquals($expected, $result);

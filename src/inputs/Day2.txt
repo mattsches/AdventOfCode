@@ -1,60 +1,3 @@
-<?php
-
-/**
- * Class Day2
- */
-class Day2
-{
-    /**
-     * @param string $dimensions
-     * @return int
-     */
-    public function getTotalSquareFeet(string $dimensions): int
-    {
-        $sides = explode('x', $dimensions);
-        $area = $this->getBoxSurfaceArea($sides);
-        $slack = $this->getSlack($sides);
-
-        return $area + $slack;
-    }
-
-    /**
-     * @param string $dimensions
-     * @return int
-     */
-    public function getRibbonLength(string $dimensions): int
-    {
-        $sides = explode('x', $dimensions);
-        sort($sides, SORT_ASC);
-        $ribbon = 2 * ($sides[0] + $sides[1]);
-        $volume = array_product($sides);
-        $feet = $ribbon + $volume;
-
-        return $feet;
-    }
-
-    /**
-     * @param array $sides
-     * @return int
-     */
-    private function getBoxSurfaceArea(array $sides): int
-    {
-        return 2 * $sides[0] * $sides[1] + 2 * $sides[1] * $sides[2] + 2 * $sides[2] * $sides[0];
-    }
-
-    /**
-     * @param array $sides
-     * @return int
-     */
-    private function getSlack(array $sides): int
-    {
-        sort($sides, SORT_ASC);
-
-        return array_product(array_slice($sides, 0, 2));
-    }
-}
-
-$input = <<<EOL
 29x13x26
 11x11x14
 27x2x5
@@ -1055,17 +998,3 @@ $input = <<<EOL
 3x2x22
 14x3x5
 10x9x8
-EOL;
-
-$day2 = new Day2();
-$order = 0;
-foreach (explode("\n", $input) as $dimensions) {
-    $order += $day2->getTotalSquareFeet($dimensions);
-}
-echo ' 2.1 => ' . $order . PHP_EOL;
-
-$length = 0;
-foreach (explode("\n", $input) as $dimensions) {
-    $length += $day2->getRibbonLength($dimensions);
-}
-echo ' 2.2 => ' . $length . PHP_EOL;
