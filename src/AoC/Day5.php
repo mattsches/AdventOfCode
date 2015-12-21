@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace AoC;
 
 /**
@@ -24,8 +25,8 @@ class Day5 implements DayInterface
     }
 
     /**
-     * @return mixed
-     * return int
+     * @param string $input
+     * @return int
      */
     public function solveSecond(\string $input): \int
     {
