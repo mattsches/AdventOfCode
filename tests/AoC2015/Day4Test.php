@@ -1,10 +1,12 @@
 <?php
-namespace AoC;
+
+namespace AoC2015;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class Day4Test
  */
-class Day4Test extends \PHPUnit_Framework_Testcase
+class Day4Test extends TestCase
 {
     /**
      * @var Day4
@@ -25,7 +27,7 @@ class Day4Test extends \PHPUnit_Framework_Testcase
      * @param int $zeroes
      * @param int $expected * @dataProvider getTestMineAdventCoinTestData
      */
-    public function testMineAdventCoin(\string $input, \int $zeroes, \int $expected)
+    public function testMineAdventCoin(string $input, int $zeroes, int $expected)
     {
         $result = $this->Day4->mineAdventCoin($input, $zeroes);
         $this->assertEquals($expected, $result);

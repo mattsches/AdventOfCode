@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
-namespace AoC;
+namespace AoC2015;
 
 /**
  * Class Day2
- * @package AoC
+ * @package AoC2015
  */
 class Day2 implements DayInterface
 {
@@ -12,7 +12,7 @@ class Day2 implements DayInterface
      * @param string $input
      * @return int
      */
-    public function solveFirst(\string $input)
+    public function solveFirst(string $input)
     {
         $order = 0;
         foreach (explode("\n", $input) as $dimensions) {
@@ -29,7 +29,7 @@ class Day2 implements DayInterface
      * @param string $input
      * @return int
      */
-    public function solveSecond(\string $input)
+    public function solveSecond(string $input)
     {
         $length = 0;
         foreach (explode("\n", $input) as $dimensions) {
@@ -46,7 +46,7 @@ class Day2 implements DayInterface
      * @param string $dimensions
      * @return int
      */
-    public function getTotalSquareFeet(\string $dimensions): \int
+    public function getTotalSquareFeet(string $dimensions): int
     {
         $sides = explode('x', $dimensions);
         $area = $this->getBoxSurfaceArea($sides);
@@ -59,7 +59,7 @@ class Day2 implements DayInterface
      * @param string $dimensions
      * @return int
      */
-    public function getRibbonLength(\string $dimensions): \int
+    public function getRibbonLength(string $dimensions): int
     {
         $sides = explode('x', $dimensions);
         sort($sides, SORT_ASC);
@@ -74,7 +74,7 @@ class Day2 implements DayInterface
      * @param array $sides
      * @return int
      */
-    private function getBoxSurfaceArea(array $sides): \int
+    private function getBoxSurfaceArea(array $sides): int
     {
         return 2 * $sides[0] * $sides[1] + 2 * $sides[1] * $sides[2] + 2 * $sides[2] * $sides[0];
     }
@@ -83,7 +83,7 @@ class Day2 implements DayInterface
      * @param array $sides
      * @return int
      */
-    private function getSlack(array $sides): \int
+    private function getSlack(array $sides): int
     {
         sort($sides, SORT_ASC);
 

@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
-namespace AoC;
+namespace AoC2015;
 
 /**
  * Class Day1
- * @package AoC
+ * @package AoC2015
  */
 class Day1 implements DayInterface
 {
@@ -12,7 +12,7 @@ class Day1 implements DayInterface
      * @param string $input
      * @return int
      */
-    public function solveFirst(\string $input)
+    public function solveFirst(string $input)
     {
         return $this->getFloor($input);
     }
@@ -21,7 +21,7 @@ class Day1 implements DayInterface
      * @param string $input
      * @return int
      */
-    public function solveSecond(\string $input)
+    public function solveSecond(string $input)
     {
         return $this->getBasementPosition($input);
     }
@@ -31,7 +31,7 @@ class Day1 implements DayInterface
      *
      * @return int
      */
-    public function getFloor(\string $input): \int
+    public function getFloor(string $input): int
     {
         $up = substr_count($input, '(');
         $down = substr_count($input, ')');
@@ -45,7 +45,7 @@ class Day1 implements DayInterface
      *
      * @return int
      */
-    public function getBasementPosition(\string $input): \int
+    public function getBasementPosition(string $input): int
     {
         $floor = 0;
         $position = -1;

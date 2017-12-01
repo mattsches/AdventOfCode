@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
-namespace AoC;
+namespace AoC2015;
 
 /**
  * Class Day5
- * @package AoC
+ * @package AoC2015
  */
 class Day5 implements DayInterface
 {
@@ -12,7 +12,7 @@ class Day5 implements DayInterface
      * @param mixed $input
      * @return int
      */
-    public function solveFirst(\string $input): \int
+    public function solveFirst(string $input): int
     {
         $counter = 0;
         foreach (explode("\n", $input) as $line) {
@@ -28,7 +28,7 @@ class Day5 implements DayInterface
      * @param string $input
      * @return int
      */
-    public function solveSecond(\string $input): \int
+    public function solveSecond(string $input): int
     {
         $counter = 0;
         foreach (explode("\n", $input) as $line) {
@@ -44,7 +44,7 @@ class Day5 implements DayInterface
      * @param string $input
      * @return bool
      */
-    public function isStringNice(\string $input): \bool
+    public function isStringNice(string $input): bool
     {
         $isNice = false;
 
@@ -62,7 +62,7 @@ class Day5 implements DayInterface
      * @param string $input
      * @return bool
      */
-    public function isStringNiceNew(\string $input): \bool
+    public function isStringNiceNew(string $input): bool
     {
         $isNice = false;
 
@@ -79,7 +79,7 @@ class Day5 implements DayInterface
      * @param string $input
      * @return bool
      */
-    public function containsPairOfLettersTwice(\string $input): \bool
+    public function containsPairOfLettersTwice(string $input): bool
     {
         return (preg_match('/\b\w*(\w{2})\w*\1/i', $input) === 1);
     }
@@ -88,7 +88,7 @@ class Day5 implements DayInterface
      * @param $input
      * @return bool
      */
-    private function containsVowels(\string $input): \bool
+    private function containsVowels(string $input): bool
     {
         return (preg_match_all('/[aeiou]/i', $input, $matches) >= 3);
     }
@@ -97,7 +97,7 @@ class Day5 implements DayInterface
      * @param $input
      * @return bool
      */
-    private function hasTwiceInARowLetter(\string $input): \bool
+    private function hasTwiceInARowLetter(string $input): bool
     {
         return (preg_match('/(.)\1/i', $input) === 1);
     }
@@ -106,7 +106,7 @@ class Day5 implements DayInterface
      * @param string $input
      * @return bool
      */
-    private function hasNotForbiddenStrings(\string $input): \bool
+    private function hasNotForbiddenStrings(string $input): bool
     {
         return (preg_match('/(ab|cd|pq|xy)/i', $input) === 0);
     }
@@ -115,7 +115,7 @@ class Day5 implements DayInterface
      * @param string $input
      * @return bool
      */
-    private function containsRepeatedLetterBetween(\string $input): \bool
+    private function containsRepeatedLetterBetween(string $input): bool
     {
         return (preg_match('/(.)(.)\1/i', $input) === 1);
     }

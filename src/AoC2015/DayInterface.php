@@ -1,9 +1,9 @@
 <?php
-namespace AoC;
+namespace AoC2015;
 
 /**
  * Interface Day
- * @package AoC
+ * @package AoC2015
  */
 interface DayInterface
 {
@@ -11,11 +11,11 @@ interface DayInterface
      * @param string $input
      * @return mixed
      */
-    public function solveFirst(\string $input);
+    public function solveFirst(string $input);
 
     /**
      * @param string $input
      * @return mixed
      */
-    public function solveSecond(\string $input);
+    public function solveSecond(string $input);
 }

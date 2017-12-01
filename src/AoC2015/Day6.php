@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
-namespace AoC;
+namespace AoC2015;
 
 /**
  * Class Day6
- * @package AoC
+ * @package AoC2015
  */
 class Day6 implements DayInterface
 {
@@ -18,7 +18,7 @@ class Day6 implements DayInterface
      * @param mixed $input
      * @return int
      */
-    public function solveFirst(\string $input): \int
+    public function solveFirst(string $input): int
     {
         $counter = 0;
         $grid = $this->initGrid();
@@ -50,7 +50,7 @@ class Day6 implements DayInterface
      * @param string $input
      * @return int
      */
-    public function solveSecond(\string $input): \int
+    public function solveSecond(string $input): int
     {
         $counter = 0;
 
@@ -77,7 +77,7 @@ class Day6 implements DayInterface
      * @param $value
      * @return string
      */
-    private function setLight(\string $command, \string $value): \string
+    private function setLight(string $command, string $value): string
     {
         switch ($command) {
             case self::CMD_ON:

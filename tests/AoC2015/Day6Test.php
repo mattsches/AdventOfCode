@@ -1,10 +1,12 @@
 <?php
-namespace AoC;
+
+namespace AoC2015;
+use PHPUnit\Framework\TestCase;
 
 /**
  * Class Day6Test
  */
-class Day6Test extends \PHPUnit_Framework_Testcase
+class Day6Test extends TestCase
 {
     /**
      * @var Day6
@@ -25,7 +27,7 @@ class Day6Test extends \PHPUnit_Framework_Testcase
      * @param int $expected
      * @dataProvider getTestIsStringNiceTestData
      */
-    public function testIsStringNice(\string $input, \int $expected)
+    public function testIsStringNice(string $input, int $expected)
     {
         $result = $this->Day6->solveFirst($input);
         $this->assertEquals($expected, $result, $input);

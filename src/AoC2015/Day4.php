@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
-namespace AoC;
+namespace AoC2015;
 
 /**
  * Class Day4
- * @package AoC
+ * @package AoC2015
  */
 class Day4 implements DayInterface
 {
@@ -12,7 +12,7 @@ class Day4 implements DayInterface
      * @param string $input
      * @return int
      */
-    public function solveFirst(\string $input)
+    public function solveFirst(string $input)
     {
         return $this->mineAdventCoin($input);
     }
@@ -21,7 +21,7 @@ class Day4 implements DayInterface
      * @param string $input
      * @return int
      */
-    public function solveSecond(\string $input)
+    public function solveSecond(string $input)
     {
         return $this->mineAdventCoin($input, 6);
     }
@@ -31,7 +31,7 @@ class Day4 implements DayInterface
      * @param int $zeroes
      * @return int
      */
-    public function mineAdventCoin(\string $secret, \int $zeroes = 5): \int
+    public function mineAdventCoin(string $secret, int $zeroes = 5): int
     {
         $number = 0;
         foreach ($this->generateNumber() as $number) {
@@ -59,7 +59,7 @@ class Day4 implements DayInterface
      * @param int $number
      * @return string
      */
-    private function generateHash(\string $secret, \int $number): \string
+    private function generateHash(string $secret, int $number): string
     {
         return md5($secret . $number);
     }
