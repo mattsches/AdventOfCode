@@ -35,10 +35,7 @@ class Day2 implements DayInterface
             $numbers = $numbers2 = preg_split('/\s+/', $line);
             foreach ($numbers as $number) {
                 foreach ($numbers2 as $number2) {
-                    if ($number === $number2) {
-                        continue;
-                    }
-                    if ($number % $number2 === 0) {
+                    if ($number !== $number2 && $number % $number2 === 0) {
                         $output += $number / $number2;
                         break 2;
                     }
