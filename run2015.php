@@ -2,7 +2,7 @@
 
 use AoC2015\DayInterface;
 
-require_once 'autoload.php';
+require_once 'vendor/autoload.php';
 if ($argc !== 2 || (!in_array((int)$argv[1], range(1, 24), true) && $argv[1] !== 'all')) {
     die('Please pass a day, e.g. `php run2015.php 12`' . PHP_EOL);
 }
