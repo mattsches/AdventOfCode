@@ -14,5 +14,9 @@ $input = file_get_contents(__DIR__ . '/src/AoC2017/inputs/Day' . $d . '.txt');
 $classname = 'AoC2017\Day' . $d;
 /** @var DayInterface $day */
 $day = new $classname();
+$start = microtime(true);
 echo $d . '.1 => ' . $day->solveFirst($input) . PHP_EOL;
+echo microtime(true) - $start . PHP_EOL;
+$start = microtime(true);
 echo $d . '.2 => ' . $day->solveSecond($input) . PHP_EOL;
+echo microtime(true) - $start . PHP_EOL;
