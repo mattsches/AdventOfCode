@@ -16,20 +16,11 @@ class Day5 implements DayInterface
     {
         $input = trim($input);
         $instructions = explode("\n", $input);
-        array_walk($instructions, function (&$instruction) {
-            $instruction = (int)$instruction;
-        });
         $steps = 0;
         $offset = 0;
         while (array_key_exists($offset, $instructions)) {
             ++$steps;
             $jump = $instructions[$offset];
-            if ($jump === 0) {
-                $instructions[$offset] += 2;
-                ++$steps;
-                ++$offset;
-                continue;
-            }
             ++$instructions[$offset];
             $offset += $jump;
         }
@@ -44,26 +35,12 @@ class Day5 implements DayInterface
     {
         $input = trim($input);
         $instructions = explode("\n", $input);
-        array_walk($instructions, function (&$instruction) {
-            $instruction = (int)$instruction;
-        });
         $steps = 0;
         $offset = 0;
         while (array_key_exists($offset, $instructions)) {
             ++$steps;
             $jump = $instructions[$offset];
-            if ($jump === 0) {
-                $instructions[$offset] += 2;
-                ++$steps;
-                ++$offset;
-                continue;
-            }
-            if ($jump >= 3) {
-                --$instructions[$offset];
-                $offset += $jump;
-                continue;
-            }
-            ++$instructions[$offset];
+            $instructions[$offset] += $jump >= 3 ? -1 : 1;
             $offset += $jump;
         }
         return $steps;
