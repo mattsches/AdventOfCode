@@ -16,16 +16,20 @@ class Day6 implements DayInterface
     {
         $input = trim($input);
         $banks = preg_split("/[\s]/", $input);
+        $numberOfBanks = \count($banks);
         $cycles = 0;
         $stateHistory = [];
         while (!\in_array($banks, $stateHistory, true)) {
             ++$cycles;
             $stateHistory[] = $banks;
             $maxBlocksOffset = array_keys($banks, max($banks))[0];
-            $count = $banks[$maxBlocksOffset];
+            $blocksToRedistribute = $banks[$maxBlocksOffset];
             $banks[$maxBlocksOffset] = 0;
-            $offset = $maxBlocksOffset === \count($banks) - 1 ? 0 : $maxBlocksOffset + 1;
-            $iterator = new \LimitIterator(new \InfiniteIterator(new \ArrayIterator($banks)), $offset, $count);
+            $iterator = new \LimitIterator(
+                new \InfiniteIterator(new \ArrayIterator($banks)),
+                $maxBlocksOffset + 1 % $numberOfBanks,
+                $blocksToRedistribute
+            );
             $iterator->rewind();
             while ($iterator->valid()) {
                 ++$banks[$iterator->key()];
@@ -43,28 +47,24 @@ class Day6 implements DayInterface
     {
         $input = trim($input);
         $banks = preg_split("/[\s]/", $input);
-        $cycles = 0;
+        $numberOfBanks = \count($banks);
         $stateHistory = [];
-        $infiniteLoopDetected = false;
         while (!\in_array($banks, $stateHistory, true)) {
-            ++$cycles;
             $stateHistory[] = $banks;
             $maxBlocksOffset = array_keys($banks, max($banks))[0];
-            $count = $banks[$maxBlocksOffset];
+            $blocksToRedistribute = $banks[$maxBlocksOffset];
             $banks[$maxBlocksOffset] = 0;
-            $offset = $maxBlocksOffset === \count($banks) - 1 ? 0 : $maxBlocksOffset + 1;
-            $iterator = new \LimitIterator(new \InfiniteIterator(new \ArrayIterator($banks)), $offset, $count);
+            $iterator = new \LimitIterator(
+                new \InfiniteIterator(new \ArrayIterator($banks)),
+                $maxBlocksOffset + 1 % $numberOfBanks,
+                $blocksToRedistribute
+            );
             $iterator->rewind();
             while ($iterator->valid()) {
                 ++$banks[$iterator->key()];
                 $iterator->next();
             }
-            if ($infiniteLoopDetected === false && \in_array($banks, $stateHistory, true)) {
-                $infiniteLoopDetected = true;
-                $cycles = 0;
-                $stateHistory = [];
-            }
         }
-        return $cycles;
+        return \count($stateHistory) - array_search($banks, $stateHistory, true);
     }
 }
