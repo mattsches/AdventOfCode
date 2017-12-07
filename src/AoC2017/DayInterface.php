@@ -10,9 +10,8 @@ interface DayInterface
 {
     /**
      * @param string $input
-     * @return int
      */
-    public function solveFirst(string $input): int;
+    public function solveFirst(string $input);
 
     /**
      * @param string $input
