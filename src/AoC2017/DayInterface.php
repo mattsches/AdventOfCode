@@ -15,7 +15,6 @@ interface DayInterface
 
     /**
      * @param string $input
-     * @return int
      */
-    public function solveSecond(string $input): int;
+    public function solveSecond(string $input);
 }
