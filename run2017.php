@@ -3,7 +3,7 @@
 use AoC2017\DayInterface;
 
 require_once 'vendor/autoload.php';
-if ($argc !== 2 || (!in_array((int)$argv[1], range(1, 24), true) && $argv[1] !== 'all')) {
+if ($argc !== 2 || (!in_array((int)$argv[1], range(1, 25), true) && $argv[1] !== 'all')) {
     die('Please pass a day, e.g. `php run2017.php 12`' . PHP_EOL);
 }
 if ($argv[1] === 'all') {
