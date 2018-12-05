@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 class Day2Test extends TestCase
 {
     /**
-     * @var Day1
+     * @var Day2
      */
     protected $day;
 

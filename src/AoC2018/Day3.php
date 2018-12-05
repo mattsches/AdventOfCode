@@ -14,8 +14,7 @@ class Day3 implements DayInterface
      */
     public function solveFirst(string $input): int
     {
-        $input = trim($input);
-        $claims = $this->parseClaims($input);
+        $claims = $this->parseClaims(trim($input));
         $maxX = $maxY = 0;
         foreach ($claims as $claim) {
             $maxX = max([$maxX, $claim['x2']]);
@@ -43,8 +42,7 @@ class Day3 implements DayInterface
      */
     public function solveSecond(string $input): int
     {
-        $input = trim($input);
-        $claims = $this->parseClaims($input);
+        $claims = $this->parseClaims(trim($input));
         $maxX = $maxY = 0;
         foreach ($claims as $claim) {
             $maxX = max([$maxX, $claim['x2']]);
@@ -98,13 +96,13 @@ class Day3 implements DayInterface
     private function parseClaims(string $input): array
     {
         $claims = [];
-        foreach (explode("\n", $input) as $line) {
-            preg_match('/#(\d+) @ (\d+),(\d+): (\d+)x(\d+)/', $line, $matches);
-            $claims[$matches[1]] = [
-                'x1' => (int)$matches[2],
-                'y1' => (int)$matches[3],
-                'x2' => $matches[2] + $matches[4],
-                'y2' => $matches[3] + $matches[5],
+        foreach (explode(PHP_EOL, $input) as $line) {
+            preg_match_all('/\d+/', $line, $m);
+            $claims[$m[0][0]] = [
+                'x1' => (int)$m[0][1],
+                'y1' => (int)$m[0][2],
+                'x2' => $m[0][1] + $m[0][3],
+                'y2' => $m[0][2] + $m[0][4],
             ];
         }
         return $claims;
